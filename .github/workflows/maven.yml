@@ -29,10 +29,8 @@ jobs:
           sudo apt-get install -y google-chrome-stable
           sudo apt-get install -y libnss3 libxi6 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxtst6 libxrandr2 libasound2t64 libpangocairo-1.0-0 libatk1.0-0 libcups2
 
-      - name: Test Application URL Availability
-        run: curl -I https://your-app-url.com
-        # Replace with your actual application URL
-        # Example: curl -I https://guidewire.myapp.com
+      - name: Check if app URL is reachable
+        run: curl -I https://pc-dev-gwcpdev.valuemom.zeta1-andromeda.guidewire.net/PolicyCenter.do
 
       - name: Run Maven Tests
         run: mvn clean test
