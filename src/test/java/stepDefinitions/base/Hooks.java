@@ -89,39 +89,39 @@ public class Hooks {
         String fullFeatureName = FilenameUtils.getName(scenario.getUri().toString());
         int dotIndex = fullFeatureName.indexOf('.');
         String Feature_name = dotIndex != -1 ? fullFeatureName.substring(0, dotIndex) : fullFeatureName;
-        Saves save= new Saves();
-        save.id=0;
-        save.runID= 0;
-        save.projectName= model.getArtifactId().trim();
-        save.environment=TestRunConfig.ENV;
-        save.featureName=Feature_name;
-        save.sceenarioName=scenario.getName();
-        save.executedDateTime = ZonedDateTime.now(ZoneOffset.UTC)
-                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssX"));
-        save.result="Passed";
-        save.machineName=System.getProperty("os.name");
-        save.executedBy=System.getProperty("user.name");
-        save.executionType="Automation";
-        save.tags= scenario.getSourceTagNames().stream()
-                .findFirst()
-                .orElse("")  // Get the first tag if present, otherwise return an empty string
-                .replaceAll("@", "");
-        save.failureReason= "";
-        save.category="";
-        save.sprintName="";
-        save.duration= String.format("%02d:%02d:%02d.%04d",timeElapsed.toDays(),timeElapsed.toHours(),timeElapsed.toMinutes(),timeElapsed.getSeconds());
-        save.releaseLink=System.getenv("RELEASE_RELEASEWEBURL");
-        System.out.println(save);
-        SaveTestResults savesresult=new SaveTestResults();
-        boolean save_success=savesresult.SaveResults(save);
-        if(save_success)
-        {
-            System.out.println("Results Saved successfully");
-        }
-        else
-        {
-            System.out.println("Failed to save test results");
-        }
+        // Saves save= new Saves();
+        // save.id=0;
+        // save.runID= 0;
+        // save.projectName= model.getArtifactId().trim();
+        // save.environment=TestRunConfig.ENV;
+        // save.featureName=Feature_name;
+        // save.sceenarioName=scenario.getName();
+        // save.executedDateTime = ZonedDateTime.now(ZoneOffset.UTC)
+        //         .format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssX"));
+        // save.result="Passed";
+        // save.machineName=System.getProperty("os.name");
+        // save.executedBy=System.getProperty("user.name");
+        // save.executionType="Automation";
+        // save.tags= scenario.getSourceTagNames().stream()
+        //         .findFirst()
+        //         .orElse("")  // Get the first tag if present, otherwise return an empty string
+        //         .replaceAll("@", "");
+        // save.failureReason= "";
+        // save.category="";
+        // save.sprintName="";
+        // save.duration= String.format("%02d:%02d:%02d.%04d",timeElapsed.toDays(),timeElapsed.toHours(),timeElapsed.toMinutes(),timeElapsed.getSeconds());
+        // save.releaseLink=System.getenv("RELEASE_RELEASEWEBURL");
+        // System.out.println(save);
+        // SaveTestResults savesresult=new SaveTestResults();
+        // boolean save_success=savesresult.SaveResults(save);
+        // if(save_success)
+        // {
+        //     System.out.println("Results Saved successfully");
+        // }
+        // else
+        // {
+        //     System.out.println("Failed to save test results");
+        // }
        cleanupDriver();
     }
 }
