@@ -1,6 +1,7 @@
 name: Java CI with Maven
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
@@ -23,5 +24,3 @@ jobs:
 
       - name: Build and Run Tests with Maven
         run: mvn clean test
-
-     
