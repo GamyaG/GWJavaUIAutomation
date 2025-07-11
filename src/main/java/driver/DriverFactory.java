@@ -47,7 +47,11 @@ public class DriverFactory {
             case "chrome" -> {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--remote-allow-origins=*");
-                // Setup WebDriverManager with specified Chrome version
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--headless=new"); // Use "new" for modern headless mode
+        chromeOptions.addArguments("--user-data-dir=/tmp/chrome-user-data-" + System.currentTimeMillis());
 
                 WebDriverManager.chromedriver().setup();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
