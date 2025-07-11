@@ -1,6 +1,6 @@
 @orangehrm
 Feature: OrangeHRM Employee Management
-  @add_employee
+  @add_employee1
   Scenario: Logging into OrangeHRM and Adding an Employee
     Given User is on the OrangeHRM login page
     When User logs in with valid credentials
