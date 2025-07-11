@@ -51,13 +51,13 @@ public class DriverFactory {
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.addArguments("--headless=new"); // Use "new" for modern headless mode
-       chromeOptions.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
+      chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
                 WebDriverManager.chromedriver().setup();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver(chromeOptions);
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-                driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(80));
+                driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(180));
                 driver.manage().window().maximize();
             }
             case "remote-chrome" -> {
